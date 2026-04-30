@@ -24,12 +24,23 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    position: relative;
+}
+
+
 body {
     font-family: var(--font-body);
     font-size: 18px; 
     font-weight: 600;
     color: var(--grey-600);
     line-height: 1.5;
+    width: 100%;
+    overflow-x: hidden; 
 }
 
 /*header*/
@@ -45,7 +56,7 @@ header nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 2rem 1rem;
     position: relative;
     width: 100%;
 }
@@ -261,8 +272,8 @@ h1 {
 }
 
 .service1 h2, .service2 h2 {
-    position: absolute;
-    bottom: 15%;
+    position: relative;
+    bottom: 30%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2rem;
@@ -276,8 +287,8 @@ h1 {
 }
 
 .service1 p, .service2 p {
-    position: absolute;
-    bottom: 2rem;
+    position: relative;
+    bottom: 35%;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
@@ -327,13 +338,15 @@ h1 {
 }
 
 .testimonial-container p {
-    color: var(--grey-600);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.6;
-    margin-bottom: 4rem;
-    min-height: 10px; 
+    margin-bottom: 2rem;
+    color: var(--grey-600);
     text-align: center;
-    width: 90%;
+    width: 100% !important; 
+    max-width: 320px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .testimonial-container h4 {
@@ -428,3 +441,214 @@ footer {
     }
 }
 
+
+/* --- VERSION MOBILE FINALE (375px) --- */
+@media (max-width: 768px) {
+/* header     */
+    header {
+        background-image: url('./images/mobile/image-header.jpg');
+        height: 80vh;
+    }
+
+    nav { 
+        padding: 1.5rem 1rem;
+     }
+
+    #hamburger { 
+        display: block !important; 
+        visibility: visible; 
+        margin-right: -10px;
+    }
+
+    #logo { 
+        width: 130px; 
+    }
+
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 80px;
+        right: 1.4rem;       
+        width: 90%;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 1.5rem 0;
+        z-index: 100;
+        text-align: center;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .nav-links::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: 0;
+        border-style: solid;
+        border-width: 0 0 24px 24px;
+        border-color: transparent transparent var(--white) transparent;
+    }
+
+    .nav-links li a { 
+        color: var(--grey-600); 
+        margin-left: 0; 
+        font-size: 1.1rem; 
+    }
+    
+    .nav-btn { 
+        background-color: var(--yellow-500) !important; 
+        color: var(--grey-950) !important; 
+    }
+
+    h1 { 
+        font-size: 2.5rem; 
+        letter-spacing: 0.2em; 
+        margin-top: 3rem; 
+        padding: 0 1rem; 
+    }
+
+/* sections */
+    .feature-grid, .feature-grid2 { 
+        flex-direction: column-reverse; }
+
+    .feature-text1, .feature-text2 {
+        padding: 4rem 1.5rem;
+        text-align: center;
+    }
+
+    .feature-text1 h2, .feature-text2 h2, 
+    .feature-text1 p, .feature-text2 p {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .feature-text1 a, .feature-text2 a {
+        display: inline-block; 
+        width: auto;           
+        margin: 0 auto;        
+        text-align: center;
+        position: relative;    
+        z-index: 1;
+    }
+
+    .feature-text1 a::after, .feature-text2 a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;          
+        left: 50%;             
+        transform: translateX(-50%); 
+        width: 110%;           
+        height: 10px;
+        border-radius: 10px;
+        opacity: 0.25;
+        z-index: -1;           
+    }
+
+    .feature-text1 a::after {
+        background-color: var(--yellow-500);
+    }
+
+    .feature-text2 a::after {
+        background-color: var(--red-400);
+    }
+
+
+    .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100vw !important;
+        margin-left: calc(50% - 50vw) !important;
+        padding: 0 !important;
+        max-width: 100vw;
+    }
+
+    .service1, .service2 {
+        width: 100vw !important;
+        min-height: 600px !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        padding: 0 1.5rem 3rem !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .service1 img, .service2 img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        z-index: 1 !important;
+    }
+
+    .service1::before, .service2::before {
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.8) 100%) !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+    }
+
+    .service1 h2, .service2 h2, .service1 p, .service2 p {
+        position: relative !important;
+        z-index: 2 !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    .service1 h2, .service2 h2 { 
+        font-size: 1.75rem; 
+        margin-bottom: 1.5rem; 
+    }
+
+    .service1 p, .service2 p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .service1::before, .service2::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    .testimonials { 
+        padding: 4rem 1.5rem; 
+    }
+    
+    .testimonial-container {
+        flex-direction: column;
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+
+    .testimonial-container p { 
+        width: 100%; 
+        margin-bottom: 2rem; 
+    }
+
+    .testimonial-container span { 
+        margin-bottom: 0; 
+    }
+
+    /* footer */
+    .gallery { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .footer-links ul { 
+        gap: 2rem; 
+    }
+}
